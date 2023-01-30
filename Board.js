@@ -23,12 +23,12 @@ export default class Board {
     }
 
     this.pieces.array.forEach((piece) => {
-      if (piece.is_goal) {
+      if (piece.isGoal) {
         this.grid[piece.rowIndex][piece.colIndex] = charGoal;
         this.grid[piece.rowIndex][piece.colIndex + 1] = charGoal;
         this.grid[piece.rowIndex + 1][piece.colIndex] = charGoal;
         this.grid[piece.rowIndex + 1][piece.colIndex + 1] = charGoal;
-      } else if (piece.is_single) {
+      } else if (piece.isSingle) {
         this.grid[piece.rowIndex][piece.colIndex] = charSingle;
       } else {
         if (piece.orientation == 'h') {

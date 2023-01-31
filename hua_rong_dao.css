@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   font-family: Arial;
 }
@@ -43,9 +45,9 @@ body {
 
 #game-board {
   display: grid;
-  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
-  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
-  background-color: #CCC;
+  grid-template-columns: repeat(var(--grid-width), var(--cell-size));
+  grid-template-rows: repeat(var(--grid-height), var(--cell-size));
+  background-color: #FEB540;
   gap: var(--cell-gap);
   border-radius: 1vmin;
   padding: var(--cell-gap);
@@ -53,8 +55,8 @@ body {
 }
 
 .cell {
-  background-color: #AAA;
-  border-radius: 1vmin;
+  background-color: #FECE80;
+  border-radius: 0.5vmin;
 }
 
 .tile {
@@ -71,7 +73,7 @@ body {
   background-color: hsl(0, 50%, var(--background-lightness));
   color: hsl(0, 25%, var(--text-lightness));
   -webkit-animation: show 200ms ease-in-out;
-          animation: show 200ms ease-in-out;
+  animation: show 200ms ease-in-out;
   transition: 100ms ease-in-out;
 }
 
@@ -87,4 +89,6 @@ body {
     opacity: 0.5;
     transform: scale(0);
   }
-}/*# sourceMappingURL=hua_rong_dao.css.map */
+}
+
+/*# sourceMappingURL=hua_rong_dao.css.map */

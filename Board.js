@@ -2,6 +2,11 @@ let charGoal = '1';
 let charSingle = '2';
 let charSpace = '.';
 
+const GIRD_HEIGHT = 5;
+const GIRD_WIDTH = 4;
+const CELL_SIZE = 15.5;
+const CELL_GAP = 1;
+
 export default class Board {
   constructor(pieces) {
     this.width = 4;
@@ -15,14 +20,14 @@ export default class Board {
 
   constructGrid() {
     for (let rowIndex = 0; rowIndex < this.height; rowIndex++) {
-      row = [];
+      let row = [];
       for (let colIndex = 0; colIndex < this.width; colIndex++) {
         row.push('');
       }
       this.grid.push(row);
     }
 
-    this.pieces.array.forEach((piece) => {
+    this.pieces.forEach((piece) => {
       if (piece.isGoal) {
         this.grid[piece.rowIndex][piece.colIndex] = charGoal;
         this.grid[piece.rowIndex][piece.colIndex + 1] = charGoal;
@@ -46,8 +51,8 @@ export default class Board {
   }
 
   getSpacePieces() {
-    for (rowIndex = 0; rowIndex < this.height; rowIndex++) {
-      for (colIndex = 0; colIndex < this.width; colIndex++) {
+    for (let rowIndex = 0; rowIndex < this.height; rowIndex++) {
+      for (let colIndex = 0; colIndex < this.width; colIndex++) {
         if (this.grid[rowIndex][colIndex] == charSpace) {
           this.spacePieceCoords.push([rowIndex, colIndex]);
         }
@@ -57,5 +62,20 @@ export default class Board {
 
   display() {
     console.table(this.grid);
+  }
+
+  createCellElements(boardElemnt) {
+    boardElemnt.style.setProperty('--grid-height', GIRD_HEIGHT);
+    boardElemnt.style.setProperty('--grid-width', GIRD_WIDTH);
+    boardElemnt.style.setProperty('--cell-size', `${CELL_SIZE}vmin`);
+    boardElemnt.style.setProperty('--cell-gap', `${CELL_GAP}vmin`);
+    const cells = [];
+    for (let i = 0; i < GIRD_HEIGHT * GIRD_WIDTH; i++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cells.push(cell);
+      boardElemnt.append(cell);
+    }
+    return cells;
   }
 }

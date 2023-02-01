@@ -35,7 +35,6 @@ body {
   font-size: 5.5vmin;
   margin: 1vmin;
 }
-
 #score-section * {
   background-color: #AAA;
   color: #fcf4f4;
@@ -47,34 +46,49 @@ body {
   display: grid;
   grid-template-columns: repeat(var(--grid-width), var(--cell-size));
   grid-template-rows: repeat(var(--grid-height), var(--cell-size));
-  background-color: #FEB540;
+  background-color: #f2bd68;
   gap: var(--cell-gap);
   border-radius: 1vmin;
   padding: var(--cell-gap);
   position: relative;
 }
 
-.cell {
-  background-color: #FECE80;
-  border-radius: 0.5vmin;
-}
-
-.tile {
+.piece, .piece-vertical, .piece-horizontal, .piece-goal, .piece-single {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--cell-size);
-  height: var(--cell-size);
   border-radius: 1vmin;
   top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   font-weight: bold;
-  background-color: hsl(0, 50%, var(--background-lightness));
-  color: hsl(0, 25%, var(--text-lightness));
   -webkit-animation: show 200ms ease-in-out;
   animation: show 200ms ease-in-out;
   transition: 100ms ease-in-out;
+}
+
+.piece-single {
+  background-color: #8c8c8c;
+  width: var(--cell-size);
+  height: var(--cell-size);
+}
+
+.piece-goal {
+  background-color: #f56767;
+  width: calc(2 * var(--cell-size) + var(--cell-gap));
+  height: calc(2 * var(--cell-size) + var(--cell-gap));
+}
+
+.piece-horizontal {
+  background-color: #6ed178;
+  width: calc(2 * var(--cell-size) + var(--cell-gap));
+  height: var(--cell-size);
+}
+
+.piece-vertical {
+  background-color: #638bbf;
+  width: var(--cell-size);
+  height: calc(2 * var(--cell-size) + var(--cell-gap));
 }
 
 @-webkit-keyframes show {
@@ -83,12 +97,10 @@ body {
     transform: scale(0);
   }
 }
-
 @keyframes show {
   0% {
     opacity: 0.5;
     transform: scale(0);
   }
 }
-
-/*# sourceMappingURL=hua_rong_dao.css.map */
+/*# sourceMappingURL=hua_rong_dao.css.map *//*# sourceMappingURL=hua_rong_dao.css.map */

@@ -64,18 +64,22 @@ export default class Board {
     console.table(this.grid);
   }
 
-  createCellElements(boardElemnt) {
-    boardElemnt.style.setProperty('--grid-height', GIRD_HEIGHT);
-    boardElemnt.style.setProperty('--grid-width', GIRD_WIDTH);
-    boardElemnt.style.setProperty('--cell-size', `${CELL_SIZE}vmin`);
-    boardElemnt.style.setProperty('--cell-gap', `${CELL_GAP}vmin`);
-    const cells = [];
-    for (let i = 0; i < GIRD_HEIGHT * GIRD_WIDTH; i++) {
-      const cell = document.createElement('div');
-      cell.classList.add('cell');
-      cells.push(cell);
-      boardElemnt.append(cell);
-    }
-    return cells;
+  createBoard(boardElement) {
+    boardElement.style.setProperty('--grid-height', GIRD_HEIGHT);
+    boardElement.style.setProperty('--grid-width', GIRD_WIDTH);
+    boardElement.style.setProperty('--cell-size', `${CELL_SIZE}vmin`);
+    boardElement.style.setProperty('--cell-gap', `${CELL_GAP}vmin`);
+    // const cells = [];
+    // for (let i = 0; i < GIRD_HEIGHT * GIRD_WIDTH; i++) {
+    //   const cell = document.createElement('div');
+    //   cell.classList.add('cell');
+    //   cells.push(cell);
+    //   boardElement.append(cell);
+    // }
+    // return cells;
   }
+
+  
 }
+
+
